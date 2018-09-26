@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Aurélien Ooms",
+      "authorEmail": "aurelien.ooms@gmail.com",
+      "authorUrl": "https://aureooms.github.io"
+    }
+  }
+}
