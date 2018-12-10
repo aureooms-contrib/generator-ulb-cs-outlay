@@ -1,7 +1,7 @@
 {
   "name": "generator-ulb-cs-outlay",
   "description": "Generate an outlay report (débours)",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": {
     "name": "Aurélien Ooms",
     "email": "aurelien.ooms@gmail.com",
