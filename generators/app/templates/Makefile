@@ -7,12 +7,12 @@ SRC := data.yml
 BUILDDIR := _build
 DATA := $(BUILDDIR)/data.json
 JSONSRC := $(BUILDDIR)/src.json
-TOTAL := $(BUILDDIR)/total.json
 EMPTYJSONFILE := $(BUILDDIR)/empty.json
 RATESDIR := $(BUILDDIR)/rates
 MONTHS := $(shell yaml2json data.yml | jq -r -f $(JQ)/find-months.jq)
 RATES := $(MONTHS:%=$(RATESDIR)/%.json)
 ALLRATES := $(BUILDDIR)/rates.json
+PERDIEM := $(BUILDDIR)/perdiem.json
 
 # see http://ec.europa.eu/budget/contracts_grants/info_contracts/inforeuro/index_fr.cfm
 define getrates
@@ -29,14 +29,15 @@ $(BUILDDIR)/$(TARGET).pdf: $(BUILDDIR)/$(TARGET).tex
 	cd $(dir $@); \
 		$(LTX) $(TARGET).tex
 
-$(BUILDDIR)/$(TARGET).tex: $(DATA) $(TOTAL)
+$(BUILDDIR)/$(TARGET).tex: $(DATA) $(PERDIEM)
 	$(GENERATE) $^ > $@
-
-$(TOTAL): $(DATA)
-	cat $< | jq -f $(JQ)/total.jq > $@
 
 $(DATA): $(JSONSRC) $(ALLRATES)
 	cat $^ | jq -s -f $(JQ)/convert-currency.jq > $@
+
+$(PERDIEM):
+	mkdir -p $(shell dirname $@)
+	curl 'https://raw.githubusercontent.com/ulb/perdiem/master/2018/data.json' > $@
 
 $(JSONSRC): $(SRC)
 	mkdir -p $(shell dirname $@)

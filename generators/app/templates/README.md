@@ -12,7 +12,7 @@
 Edit the file `data.yml` 
 
     car:
-        - id: 1
+        - id: CUSTOMLATEXID
           date: 2018-07-05 -- 2018-07-09
           title: Aller-retour Brussels -- Utrecht
           km: 360
@@ -22,30 +22,25 @@ Edit the file `data.yml`
 Edit the file `data.yml` 
 
     travel:
-        - id: 2
-          date: 2018-07-05 -- 2018-07-09
+        - date: 2018-07-05 -- 2018-07-09
           title: Aller-retour BRU -- PRG
           currency: CZK 3395
           eur: 133.19
 
-        - id: 3
-          date: 2018-07-05
+        - date: 2018-07-05
           title: Taxi vers BRU
           eur: 38.5
 
-        - id: 4
-          date: 2018-07-05
+        - date: 2018-07-05
           title: Uber de PRG
           currency: CZK 275.79
           eur: 10.60
 
-        - id: 5
-          date: 2018-07-09
+        - date: 2018-07-09
           title: Taxi vers PRG
           currency: CZK 600
 
-        - id: 6
-          date: 2018-07-09
+        - date: 2018-07-09
           title: Taxi de BRU
           eur: 50.6
 
@@ -55,7 +50,11 @@ Edit the file `data.yml`
 Edit the file `data.yml` 
 
     other:
-        - id: 7
-          date: 2018-07-05 -- 2018-07-09
-          title: Per diem (30 EUR x 4 jours FRIA)
-          eur: 120
+        - date: 2018-07-05 -- 2018-07-09
+          perdiem: fria
+
+        - date: 2018-07-05 -- 2018-07-09
+          perdiem: fnrs
+
+        - date: 2018-04-29 -- 2018-07-10
+          perdiem: Hongrie
