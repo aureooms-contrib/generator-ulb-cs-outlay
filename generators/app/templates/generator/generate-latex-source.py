@@ -5,7 +5,7 @@ import json
 import argparse
 from datetime import datetime
 
-KM = 0.3573
+KM = 0.3653
 CURRENCY = 'devises (CAD, USD, \\dots)'
 
 parser = argparse.ArgumentParser('Generate the outlay from a JSON data file.')
